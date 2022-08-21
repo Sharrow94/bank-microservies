@@ -1,1 +1,1 @@
-# gastroMmanager-microservies
+# gastroManager-microservies

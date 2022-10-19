@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+
+  accounts:
+    image: sharro94/account
+    mem_limit: 700m
+    ports:
+     - "8080:8080"
+    networks:
+     - bank-network
+     
+  loans:
+    image: sharro94/loans
+    mem_limit: 700m
+    ports:
+     - "8081:8081"
+    networks:
+     - bank-network  
+     
+  cards:
+    image: sharro94/cards
+    mem_limit: 700m
+    ports:
+     - "8082:8082"
+    networks:
+     - bank-network     
+     
+networks:
+ bank-network:

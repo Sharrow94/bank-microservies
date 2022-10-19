@@ -8,7 +8,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.bank</groupId>
-	<artifactId>bank-cards</artifactId>
+	<artifactId>cards</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>bank-cards</name>
 	<description>Demo project for Spring Boot</description>
@@ -73,12 +73,9 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
+					<image>
+					<name>sharro94/${project.artifactId}</name>
+					</image>
 				</configuration>
 			</plugin>
 		</plugins>

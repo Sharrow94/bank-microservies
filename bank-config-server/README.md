@@ -1,2 +1,2 @@
-# assemblyOrganizer-config-server
-Configuration server for AssemblyOrganizerApp
+# bank-config-server
+Configuration server for BankApp

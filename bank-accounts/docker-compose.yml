@@ -2,6 +2,14 @@ version: "3.8"
 
 services:
 
+  eurekaserver:
+    image: sharro94/eureka
+    mem_limit: 700m
+    ports:
+     - "8761:8761"
+    networks:
+     - bank-network
+
   accounts:
     image: sharro94/account
     mem_limit: 700m
@@ -9,22 +17,52 @@ services:
      - "8080:8080"
     networks:
      - bank-network
+    depends_on:
+     - eurekaserver
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 4
+        window: 120s
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka/     
      
   loans:
-    image: sharro94/loans
+    image: sharro94/loan
     mem_limit: 700m
     ports:
      - "8081:8081"
     networks:
      - bank-network  
+    depends_on:
+     - eurekaserver
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 4
+        window: 120s 
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka/    
      
   cards:
-    image: sharro94/cards
+    image: sharro94/card
     mem_limit: 700m
     ports:
      - "8082:8082"
     networks:
-     - bank-network     
+     - bank-network
+    depends_on:
+     - eurekaserver 
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 15s
+        max_attempts: 4
+        window: 120s 
+    environment:
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://eurekaserver:8761/eureka/        
      
 networks:
  bank-network:

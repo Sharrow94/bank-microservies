@@ -1,17 +1,15 @@
-package com.bank.account.model;
+package com.bank.account.transfer.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
 @Data
-public class Customer {
+public class CustomerTO {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

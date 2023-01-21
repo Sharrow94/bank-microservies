@@ -1,2 +1,1 @@
-insert into customer(id,created_at,email,mobile_number,name) values(1,CURDATE(),'maciej@gmail.com','666','Maciej');
 insert into account(customer_id,account_number,account_type,branch_address,created_at) values(1,111,'private','Pory 58',CURDATE());

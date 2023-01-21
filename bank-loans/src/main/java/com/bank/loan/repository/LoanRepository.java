@@ -10,5 +10,5 @@ import com.bank.loan.model.Loan;
 @Repository
 public interface LoanRepository extends JpaRepository<Loan, Long> {
 
-	List<Loan> findAllByCustomerId(Long id);
+	List<Loan> findByCustomerIdOrderByStartAtDesc(Long id);
 }
